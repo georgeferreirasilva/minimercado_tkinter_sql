@@ -1,0 +1,11 @@
+TERMOS DE USO
+
+Este software de Sistema de Minimercado é fornecido "no estado em que se encontra" para fins educacionais e demonstração.
+
+O autor não se responsabiliza por quaisquer danos diretos ou indiretos decorrentes do uso do software.
+
+Ao instalar este programa, você concorda com os seguintes termos:
+- Não redistribuir comercialmente sem autorização.
+- Não modificar ou vender sem autorização.
+
+Clique em "Aceito" para continuar a instalação.

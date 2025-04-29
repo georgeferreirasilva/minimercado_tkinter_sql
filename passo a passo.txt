@@ -1,0 +1,46 @@
+1) pip install pyinstaller
+
+Cd\Program Files\Python37-32
+
+Cd\Users\George\AppData\Local\Programs\Python\Python38-32
+
+
+Cd\minimercado_tkinter_sql
+
+minimercado_tkinter_sql.py
+
+
+Compilação sem icone
+
+2) pyinstaller --onefile --noconsole minimercado_tkinter_sql.py
+
+ou 
+3) Compilação com icone do sistema
+dica extra para adicionar icone ao sistema
+
+pyinstaller --onefile --noconsole --icon=icone.ico minimercado_tkinter_sql.py
+
+
+onde é gerado o executável do sistema.
+
+4) dist/minimercado_tkinter_sql.py.exe
+
+
+Etapa | Comando                                                      | Descrição
+1     | pip install pyinstaller                                      | Instala o compilador
+2     | pyinstaller --onefile --noconsole minimercado_tkinter_sql.py | Gera o .exe
+3     | Buscar seu .exe                                              | Dentro da pasta dist/
+
+
+
+conversores de icones
+https://www.online-convert.com/pt
+https://convertico.com/pt
+
+onde peguei o icone do mercado.
+https://www.flaticon.com/br/buscar?word=mercado
+
+
+
+
+pyinstaller --onefile --noconsole --icon=icone.ico minimercado_tkinter_sql.py

@@ -1,0 +1,78 @@
+CREATE DATABASE IF NOT EXISTS testemercado;
+
+USE testemercado;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    usuario VARCHAR(50) PRIMARY KEY,
+    senha VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS produtos (
+    codigo VARCHAR(20) PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    preco_custo DECIMAL(10, 2) NOT NULL,
+    preco_venda DECIMAL(10, 2) NOT NULL,
+    estoque INT NOT NULL,
+    unidade VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS vendas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data DATETIME NOT NULL,
+    total DECIMAL(10, 2) NOT NULL,
+    forma_pagamento VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS itens_venda (
+    venda_id INT,
+    produto_codigo VARCHAR(20),
+    quantidade INT NOT NULL,
+    preco_unitario DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (venda_id) REFERENCES vendas(id),
+    FOREIGN KEY (produto_codigo) REFERENCES produtos(codigo),
+    PRIMARY KEY (venda_id, produto_codigo)
+);
+
+
+USE testemercado;
+
+-- Populando a tabela usuarios
+INSERT INTO usuarios (usuario, senha) VALUES
+('admin', 'senha123'),
+('caixa1', 'caixa123'),
+('gerente', 'gerente123'),
+('caixa2', 'senha456');
+
+-- Populando a tabela produtos
+INSERT INTO produtos (codigo, nome, preco_custo, preco_venda, estoque, unidade) VALUES
+('1001', 'Arroz 5kg', 18.50, 25.99, 100, 'kg'),
+('1002', 'Feijão 1kg', 7.00, 9.99, 150, 'kg'),
+('1003', 'Óleo de Soja 900ml', 8.00, 12.50, 200, 'ml'),
+('1004', 'Açúcar 5kg', 12.00, 17.99, 120, 'kg'),
+('1005', 'Sal 1kg', 2.50, 4.50, 300, 'kg'),
+('2001', 'Leite UHT 1L', 4.00, 6.50, 250, 'l'),
+('2002', 'Café Torrado 500g', 9.50, 14.99, 180, 'g'),
+('2003', 'Manteiga 200g', 6.00, 8.90, 100, 'g'),
+('3001', 'Detergente Líquido 500ml', 2.00, 3.75, 400, 'ml'),
+('3002', 'Papel Higiênico (4 rolos)', 5.50, 8.75, 350, 'rolos'),
+('4001', 'Macarrão 1kg', 3.00, 5.50, 220, 'kg'),
+('4002', 'Farinha de Trigo 1kg', 4.50, 7.00, 190, 'kg');
+
+-- Populando a tabela vendas (exemplos)
+INSERT INTO vendas (data, total, forma_pagamento) VALUES
+(NOW(), 125.47, 'Cartão de Crédito'),
+(DATE_SUB(NOW(), INTERVAL 1 DAY), 56.98, 'À Vista'),
+(DATE_SUB(NOW(), INTERVAL 2 DAY), 89.23, 'PIX');
+
+-- Populando a tabela itens_venda (exemplos)
+INSERT INTO itens_venda (venda_id, produto_codigo, quantidade, preco_unitario) VALUES
+(1, '1001', 2, 25.99),  -- Venda 1: 2 x Arroz
+(1, '2001', 3, 6.50),   -- Venda 1: 3 x Leite
+(1, '3002', 1, 8.75),   -- Venda 1: 1 x Papel Higiênico
+(2, '1002', 5, 9.99),  -- Venda 2: 5 x Feijão
+(2, '1005', 2, 4.50),   -- Venda 2: 2 x Sal
+(3, '1003', 4, 12.50),  -- Venda 3: 4 x Óleo
+(3, '4001', 1, 5.50);   -- Venda 3: 1 x Macarrão
+
+
+

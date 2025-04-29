@@ -1,0 +1,3 @@
+Bem-vindo ao Instalador do Sistema de Minimercado!
+Este assistente irá instalar o Sistema de Minimercado no seu computador.
+Clique em Avançar para continuar.
