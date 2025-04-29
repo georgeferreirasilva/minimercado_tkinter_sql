@@ -1,8 +1,10 @@
 # minimercado_tkinter_sql
 
-Projeto Integrador 2024 - 
+Projeto Integrador 2025 
 
-sistema de vendas minimercado 
+Uma Idéia ou protótipo em banco de dados sql ambiente windows em python compilado em ambiente gráfico tkinter.
+
+Sistema de vendas minimercado 
 feito no python tkinter com mysql
 estou utilizando mysql banco e tabelas neste trabalho.
 
